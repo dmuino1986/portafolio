@@ -8,39 +8,39 @@ import Footer from "./components/footer";
 import "./App.css";
 
 const App: React.FC = () => {
-  // const [isNavbarVisible, setIsNavbarVisible] = useState(false);
-  // const projectsRef = useRef<HTMLDivElement>(null);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+  const projectsRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   // Store the current value of projectsRef in a variable
-  //   const currentRef = projectsRef.current;
+  useEffect(() => {
+    // Store the current value of projectsRef in a variable
+    const currentRef = projectsRef.current;
 
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       // Toggle navbar visibility based on whether Projects section is in view
-  //       setIsNavbarVisible(entry.isIntersecting);
-  //     },
-  //     {
-  //       threshold: 0.1, // Trigger when 10% of the Projects section is visible
-  //     }
-  //   );
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Toggle navbar visibility based on whether Projects section is in view
+        setIsNavbarVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1, // Trigger when 5% of the Projects section is visible
+      }
+    );
 
-  //   if (currentRef) {
-  //     observer.observe(currentRef);
-  //   }
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
-  //   return () => {
-  //     if (currentRef) {
-  //       observer.unobserve(currentRef);
-  //     }
-  //   };
-  // }, []); // Empty dependency array ensures this effect runs only once
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []); // Empty dependency array ensures this effect runs only once
 
   return (
     <div>
       <Header />
-      {/* <Navbar visibleCss={isNavbarVisible ? "visible" : ""} /> */}
-      <Projects />
+      <Navbar visibleCss={isNavbarVisible ? "visible" : ""} />
+      <Projects inView={isNavbarVisible} ref={projectsRef} />
       <Skills />
       <Contact />
       <Footer />
