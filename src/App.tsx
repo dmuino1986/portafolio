@@ -44,7 +44,10 @@ const App: React.FC = () => {
   return (
     <div>
       <Header isDarkMode={isDarkMode} onThemeToggle={handleThemeToggle} />
-      <Navbar visibleCss={isNavbarVisible ? "visible" : ""} />
+      <Navbar
+        visibleCss={isNavbarVisible ? "visible" : ""}
+        onThemeToggle={handleThemeToggle}
+      />
       <Projects inView={isNavbarVisible} ref={projectsRef} />
       <Skills />
       <Contact />

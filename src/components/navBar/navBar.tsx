@@ -1,11 +1,13 @@
 import React from "react";
 import "./navBar.css";
+import ThemeToggle from "../themeToggle/toggleTheme";
 
 interface NavbarProps {
   visibleCss?: string; // Add className prop
+  onThemeToggle: (isDarkMode: boolean) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ visibleCss }) => {
+const Navbar: React.FC<NavbarProps> = ({ visibleCss, onThemeToggle }) => {
   return (
     <nav className={`navbar ${visibleCss || ""}`}>
       {" "}
@@ -19,6 +21,9 @@ const Navbar: React.FC<NavbarProps> = ({ visibleCss }) => {
         </li>
         <li>
           <a href="#contact">Contact</a>
+        </li>
+        <li>
+          <ThemeToggle onToggle={onThemeToggle} />
         </li>
       </ul>
     </nav>

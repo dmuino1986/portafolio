@@ -19,13 +19,6 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ onToggle }) => {
     );
   }, [isDarkMode]);
 
-  //   useEffect(() => {
-  //     const savedTheme = localStorage.getItem("theme");
-  //     if (savedTheme === "dark") {
-  //       setIsDarkMode(true);
-  //     }
-  //   }, []);
-
   return (
     <button onClick={toggleTheme} className="theme-toggle">
       {isDarkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
