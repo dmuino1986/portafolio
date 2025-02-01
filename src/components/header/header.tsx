@@ -3,8 +3,15 @@ import { useInView } from "react-intersection-observer";
 import Particles from "react-tsparticles";
 import type { Engine, IOptions, RecursivePartial } from "tsparticles-engine"; // Correct import for Engine type
 import { loadFull } from "tsparticles";
+import "./header.css";
+import ThemeToggle from "../themeToggle/toggleTheme";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  isDarkMode: boolean;
+  onThemeToggle: (isDarkMode: boolean) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ isDarkMode, onThemeToggle }) => {
   const { ref, inView } = useInView({
     triggerOnce: true, // Trigger animation only once
     threshold: 0.1, // Trigger when 10% of the component is visible
@@ -16,9 +23,9 @@ const Header: React.FC = () => {
 
   const particleOptions: RecursivePartial<IOptions> = {
     background: {
-      image: "url('https://particles.js.org/images/background3.jpg')",
+      // image: "url('https://particles.js.org/images/background3.jpg')",
       color: {
-        value: "#0d47a1", // Dark blue background
+        value: isDarkMode ? "#121212" : "#ffffff",
       },
     },
     fpsLimit: 60,
@@ -45,10 +52,10 @@ const Header: React.FC = () => {
     },
     particles: {
       color: {
-        value: "#ffffff", // White particles
+        value: isDarkMode ? "#bb86fc" : "#007bff", // Dynamic particle color
       },
       links: {
-        color: "#ffffff",
+        color: isDarkMode ? "#03dac6" : "#6c757d", // Dynamic link color
         distance: 150,
         enable: true,
         opacity: 0.5,
@@ -101,6 +108,7 @@ const Header: React.FC = () => {
         <a href="#projects" className="btn">
           View My Work
         </a>
+        <ThemeToggle onToggle={onThemeToggle} />
       </div>
     </header>
   );

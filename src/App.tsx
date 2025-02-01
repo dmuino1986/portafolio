@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "./components/navBar/navBar";
-import Header from "./components/header";
+import Header from "./components/header/header";
 import Projects from "./components/projects/projects";
 import Skills from "./components/skills";
 import Contact from "./components/contact";
@@ -10,6 +10,7 @@ import "./App.css";
 const App: React.FC = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     // Store the current value of projectsRef in a variable
@@ -36,9 +37,13 @@ const App: React.FC = () => {
     };
   }, []); // Empty dependency array ensures this effect runs only once
 
+  const handleThemeToggle = (isDarkMode: boolean) => {
+    setIsDarkMode(isDarkMode);
+  };
+
   return (
     <div>
-      <Header />
+      <Header isDarkMode={isDarkMode} onThemeToggle={handleThemeToggle} />
       <Navbar visibleCss={isNavbarVisible ? "visible" : ""} />
       <Projects inView={isNavbarVisible} ref={projectsRef} />
       <Skills />
