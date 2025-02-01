@@ -1,5 +1,8 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import Particles from "react-tsparticles";
+import type { Engine, IOptions, RecursivePartial } from "tsparticles-engine"; // Correct import for Engine type
+import { loadFull } from "tsparticles";
 
 const Header: React.FC = () => {
   const { ref, inView } = useInView({
@@ -7,8 +10,91 @@ const Header: React.FC = () => {
     threshold: 0.1, // Trigger when 10% of the component is visible
   });
 
+  const particlesInit = async (engine: Engine) => {
+    await loadFull(engine); // Load the full tsparticles bundle
+  };
+
+  const particleOptions: RecursivePartial<IOptions> = {
+    background: {
+      image: "url('https://particles.js.org/images/background3.jpg')",
+      color: {
+        value: "#0d47a1", // Dark blue background
+      },
+    },
+    fpsLimit: 60,
+    interactivity: {
+      events: {
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
+        onHover: {
+          enable: true,
+          mode: "repulse",
+        },
+      },
+      modes: {
+        push: {
+          quantity: 4,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+      },
+    },
+    particles: {
+      color: {
+        value: "#ffffff", // White particles
+      },
+      links: {
+        color: "#ffffff",
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1,
+      },
+      collisions: {
+        enable: true,
+      },
+      move: {
+        direction: "none",
+        enable: true,
+        outModes: {
+          default: "bounce",
+        },
+        random: false,
+        speed: 2,
+        straight: false,
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800,
+        },
+        value: 80,
+      },
+      opacity: {
+        value: 0.5,
+      },
+      shape: {
+        type: "circle",
+      },
+      size: {
+        value: { min: 1, max: 5 },
+      },
+    },
+    detectRetina: true,
+  };
+
   return (
     <header ref={ref} className={`hero ${inView ? "visible" : ""}`}>
+      {/* Particle.js Background */}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={particleOptions}
+      />
       <div className="container">
         <h1>Your Name</h1>
         <p className="tagline">Web Developer | Designer | Creative Thinker</p>

@@ -1,4 +1,5 @@
 import React from "react";
+import "./projects.css";
 import { useInView } from "react-intersection-observer";
 
 const Projects: React.FC = () => {
