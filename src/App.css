@@ -1,6 +1,7 @@
 :root {
   /* Light Theme */
   --background-color: #121212;
+  --background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
   --text-color: #ffffff;
   --primary-color: #bb86fc;
   --secondary-color: #03dac6;
@@ -9,11 +10,11 @@
 [data-theme="dark"] {
   /* Dark Theme */
   --background-color: #ffffff;
+  --background-image: linear-gradient(-20deg, #010101 0%, #0a041f 100%);
   --text-color: #fcf9f9;
   --primary-color: #007bff;
   --secondary-color: #6c757d;
 }
-
 
 body {
   margin: 0;

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 interface ThemeState {
   isDarkMode: boolean;
@@ -9,11 +9,15 @@ const initialState: ThemeState = {
 };
 
 const themeSlice = createSlice({
-  name: 'theme',
+  name: "theme",
   initialState,
   reducers: {
     toggleTheme: (state) => {
       state.isDarkMode = !state.isDarkMode;
+      document.documentElement.setAttribute(
+        "data-theme",
+        state.isDarkMode ? "dark" : "light"
+      );
     },
   },
 });

@@ -26,12 +26,12 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>((props, ref) => {
   }, [dispatch]);
 
   const particleOptions: RecursivePartial<IOptions> = {
-    background: {
-      // image: "url('https://particles.js.org/images/background3.jpg')",
-      color: {
-        value: isDarkMode ? "#121212" : "#ffffff",
-      },
-    },
+    // background: {
+    //  image: "url('https://particles.js.org/images/background3.jpg')",
+    //   // color: {
+    //   //   value: isDarkMode ? "#121212" : "#ffffff",
+    //   // },
+    // },
     fpsLimit: 60,
     interactivity: {
       events: {
