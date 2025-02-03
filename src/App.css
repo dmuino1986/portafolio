@@ -13,166 +13,20 @@
   --primary-color: #007bff;
   --secondary-color: #6c757d;
 }
-[data-theme="light"] {
-  /* Dark Theme */
-  --background-color: #ffffff;
-  --text-color: #333333;
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-}
+
 
 body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem 0;
-}
-
-h1,
-h2,
-h3 {
-  margin: 0;
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  margin: 0.5rem 0;
-}
-
-a {
-  color: (--text-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #007bff;
-}
-
-/* Skills Section */
-.skills {
-  background: #f9f9f9;
-  padding: 4rem 0;
-}
-
-.skills-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.skills-list li {
-  background: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Contact Section */
-.contact {
-  background: #fff;
-  padding: 4rem 0;
-  text-align: center;
-}
-
-/* Footer */
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
-}
-
-footer a {
-  color: #007bff;
-}
-
-footer a:hover {
-  color: #0056b3;
-}
-
-/* Full-Screen Components */
-section,
-header {
-  min-height: 100vh; /* Each section and header takes at least the full viewport height */
-  display: flex;
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-  padding: 2rem 0; /* Add some padding */
-  opacity: 0; /* Start with components hidden */
-  transform: translateY(20px); /* Start slightly below */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-section.visible,
-header.visible {
-  opacity: 1; /* Fade in */
-  transform: translateY(0); /* Move to original position */
-}
-
-/* Hero Section */
-/* Animated Gradient Background */
-
-.video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-.container {
-  z-index: 1; /* Ensure content is above the video */
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: #007bff;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background: #0056b3;
-}
-
-/* Projects Section */
-.projects {
-  background: #f9f9f9;
-}
-
-/* Skills Section */
-.skills {
-  background: #fff;
-}
-
-/* Contact Section */
-.contact {
-  background: #f9f9f9;
 }

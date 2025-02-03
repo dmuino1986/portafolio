@@ -1,7 +1,21 @@
-/* Projects Section */
 .projects {
-  background: #af2727;
-  padding: 4rem 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px; /* Account for the navbar */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .project-grid {
@@ -11,7 +25,7 @@
 }
 
 .project-card {
-  background: #fff;
+  background: var(--background-color);
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -28,15 +42,21 @@
   margin-bottom: 0.5rem;
 }
 
-.project-card .btn {
+.project-card p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.btn {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #007bff;
-  color: #fff;
+  background: var(--primary-color);
+  color: white;
   border-radius: 5px;
+  text-decoration: none;
   transition: background 0.3s ease;
 }
 
-.project-card .btn:hover {
-  background: #0056b3;
+.btn:hover {
+  background: var(--secondary-color);
 }

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 interface NavbarState {
   isVisible: boolean;
@@ -9,7 +9,7 @@ const initialState: NavbarState = {
 };
 
 const navbarSlice = createSlice({
-  name: "navbar",
+  name: 'navbar',
   initialState,
   reducers: {
     showNavbar: (state) => {

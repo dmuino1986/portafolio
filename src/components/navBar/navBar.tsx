@@ -1,30 +1,17 @@
-import React from "react";
-import "./navBar.css";
-import ThemeToggle from "../themeToggle/toggleTheme";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import './navBar.css';
 
-interface NavbarProps {
-  visibleCss?: string; // Add className prop
-  onThemeToggle: (isDarkMode: boolean) => void;
-}
+const Navbar: React.FC = () => {
+  const isVisible = useSelector((state: RootState) => state.navbar.isVisible);
 
-const Navbar: React.FC<NavbarProps> = ({ visibleCss, onThemeToggle }) => {
   return (
-    <nav className={`navbar ${visibleCss || ""}`}>
-      {" "}
-      {/* Apply className */}
+    <nav className={`navbar ${isVisible ? 'visible' : ''}`}>
       <ul>
-        <li>
-          <a href="#projects">Projects</a>
-        </li>
-        <li>
-          <a href="#skills">Skills</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-        <li>
-          <ThemeToggle onToggle={onThemeToggle} />
-        </li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   );

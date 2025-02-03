@@ -1,25 +1,29 @@
-import React from "react";
-import { useInView } from "react-intersection-observer";
-import Particles from "react-tsparticles";
-import type { Engine, IOptions, RecursivePartial } from "tsparticles-engine"; // Correct import for Engine type
-import { loadFull } from "tsparticles";
-import "./header.css";
-import ThemeToggle from "../themeToggle/toggleTheme";
+import React, { forwardRef, useEffect } from 'react';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import type { Engine, IOptions, RecursivePartial } from 'tsparticles-engine';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { hideNavbar } from '../../store/navBarSlice';
+import ThemeToggle from '../themeToggle/toggleTheme';
+import './header.css';
 
 interface HeaderProps {
-  isDarkMode: boolean;
-  onThemeToggle: (isDarkMode: boolean) => void;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
-const Header: React.FC<HeaderProps> = ({ isDarkMode, onThemeToggle }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger animation only once
-    threshold: 0.1, // Trigger when 10% of the component is visible
-  });
+const Header = forwardRef<HTMLDivElement, HeaderProps>((props, ref) => {
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector((state: RootState) => state.theme.isDarkMode);
 
   const particlesInit = async (engine: Engine) => {
-    await loadFull(engine); // Load the full tsparticles bundle
+    await loadFull(engine);
   };
+
+  // Hide navbar when in the header section
+  useEffect(() => {
+    dispatch(hideNavbar());
+  }, [dispatch]);
 
   const particleOptions: RecursivePartial<IOptions> = {
     background: {
@@ -95,23 +99,24 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, onThemeToggle }) => {
   };
 
   return (
-    <header ref={ref} className={`hero ${inView ? "visible" : ""}`}>
-      {/* Particle.js Background */}
+    <header className="hero" ref={ref}>
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={particleOptions}
       />
+      <div className="theme-toggle-container">
+        <ThemeToggle />
+      </div>
       <div className="container">
         <h1>Your Name</h1>
         <p className="tagline">Web Developer | Designer | Creative Thinker</p>
-        <a href="#projects" className="btn">
-          View My Work
-        </a>
-        <ThemeToggle onToggle={onThemeToggle} />
+        <a href="#projects" className="btn">View My Work</a>
       </div>
     </header>
   );
-};
+});
+
+Header.displayName = 'Header';
 
 export default Header;

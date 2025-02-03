@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../../store/themeSlice';
+import { RootState } from '../../store/store';
+import './themeToggle.css';
 
-interface ThemeToggleProps {
-  onToggle: (isDarkMode: boolean) => void;
-}
+const ThemeToggle: React.FC = () => {
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector((state: RootState) => state.theme.isDarkMode);
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ onToggle }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
-    onToggle(!isDarkMode); // Notify parent component of theme change
+  const handleToggle = () => {
+    dispatch(toggleTheme());
   };
 
-  useEffect(() => {
-    document.documentElement.setAttribute(
-      "data-theme",
-      isDarkMode ? "dark" : "light"
-    );
-  }, [isDarkMode]);
-
   return (
-    <button onClick={toggleTheme} className="theme-toggle">
-      {isDarkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
+    <button onClick={handleToggle} className="theme-toggle">
+      {isDarkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
     </button>
   );
 };

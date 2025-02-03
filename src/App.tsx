@@ -1,54 +1,52 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Navbar from "./components/navBar/navBar";
 import Header from "./components/header/header";
 import Projects from "./components/projects/projects";
-import Skills from "./components/skills";
-import Contact from "./components/contact";
-import Footer from "./components/footer";
+import Skills from "./components/skills/skills";
+import Contact from "./components/contact/contact";
+import Footer from "./components/footer/footer";
 import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "./store/store";
+import { hideNavbar, showNavbar } from "./store/navBarSlice";
 
-const App: React.FC = () => {
-  const [isNavbarVisible, setIsNavbarVisible] = useState(false);
-  const projectsRef = useRef<HTMLDivElement>(null);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+const App:React.FC = () => {
+  // const isNavbarVisible = useSelector((state:RootState)=>state.navbar.isVisible);
+  const dispatch = useDispatch();
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Store the current value of projectsRef in a variable
-    const currentRef = projectsRef.current;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Toggle navbar visibility based on whether Projects section is in view
-        setIsNavbarVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          dispatch(hideNavbar()); // Hide navbar when header is in view
+        } else {
+          dispatch(showNavbar()); // Show navbar when header is out of view
+        }
       },
       {
-        threshold: 0.1, // Trigger when 5% of the Projects section is visible
+        threshold: 0.1, // Trigger when 10% of the header is visible
       }
-    );
-
-    if (currentRef) {
-      observer.observe(currentRef);
+    ); 
+    
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
     }
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+      if (headerRef.current) {
+        observer.unobserve(headerRef.current);
       }
     };
-  }, []); // Empty dependency array ensures this effect runs only once
+  }, [dispatch]);
 
-  const handleThemeToggle = (isDarkMode: boolean) => {
-    setIsDarkMode(isDarkMode);
-  };
+
 
   return (
     <div>
-      <Header isDarkMode={isDarkMode} onThemeToggle={handleThemeToggle} />
-      <Navbar
-        visibleCss={isNavbarVisible ? "visible" : ""}
-        onThemeToggle={handleThemeToggle}
-      />
-      <Projects inView={isNavbarVisible} ref={projectsRef} />
+      <Header ref={headerRef}/>
+      <Navbar />
+      <Projects/>
       <Skills />
       <Contact />
       <Footer />
