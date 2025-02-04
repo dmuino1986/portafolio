@@ -109,9 +109,10 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>((props, ref) => {
         <ThemeToggle />
       </div>
       <div className="container">
-        <h1>Your Name</h1>
-        <p className="tagline">Web Developer | Designer | Creative Thinker</p>
+        <h1>DARIEN MARTIN</h1>
+        <p className="tagline">Full Stack Web Developer </p>
         <a href="#projects" className="btn">View My Work</a>
+        <i className="material-icons arrow-button">arrow_downward</i>
       </div>
     </header>
   );
