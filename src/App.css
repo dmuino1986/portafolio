@@ -30,4 +30,16 @@ section {
   align-items: center;
   justify-content: center;
   padding: 2rem 0;
+  transform: translateY(.7rem); /* Start slightly below */
+
+}
+
+section,
+header {
+  min-height: 100vh; /* Each section and header takes at least the full viewport height */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  padding: 2rem 0; /* Add some padding */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
