@@ -3,11 +3,14 @@
   top: -60px; /* Start off-screen */
   left: 0;
   width: 100%;
-  background: #333;
-  color: white;
+  background-color: var(--primary-color);
+  /* background-color: #e9defa;  */
+  color: var(--text-color);
   padding: 1rem;
   transition: top 0.3s ease;
-  z-index: 1000;
+  z-index: 10;
+  border-bottom: 1px solid var(--text-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.visible {
@@ -17,9 +20,10 @@
 .navbar ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   margin: 0;
   padding: 0;
+  margin-right: 10vh;
 }
 
 .navbar ul li {
@@ -27,11 +31,11 @@
 }
 
 .navbar ul li a {
-  color: white;
   text-decoration: none;
   font-weight: 500;
+  color: var(--text-color);
 }
 
 .navbar ul li a:hover {
-  color: #f4b400;
+  color: var(--secundary-color);
 }

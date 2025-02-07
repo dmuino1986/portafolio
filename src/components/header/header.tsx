@@ -1,12 +1,12 @@
-import React, { forwardRef, useEffect } from 'react';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
-import type { Engine, IOptions, RecursivePartial } from 'tsparticles-engine';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { hideNavbar } from '../../store/navBarSlice';
-import ThemeToggle from '../themeToggle/toggleTheme';
-import './header.css';
+import React, { forwardRef, useEffect } from "react";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import type { Engine, IOptions, RecursivePartial } from "tsparticles-engine";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { hideNavbar } from "../../store/navBarSlice";
+import ThemeToggle from "../themeToggle/toggleTheme";
+import "./header.css";
 
 interface HeaderProps {
   ref?: React.Ref<HTMLDivElement>;
@@ -26,12 +26,6 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>((props, ref) => {
   }, [dispatch]);
 
   const particleOptions: RecursivePartial<IOptions> = {
-    // background: {
-    //  image: "url('https://particles.js.org/images/background3.jpg')",
-    //   // color: {
-    //   //   value: isDarkMode ? "#121212" : "#ffffff",
-    //   // },
-    // },
     fpsLimit: 60,
     interactivity: {
       events: {
@@ -109,15 +103,19 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>((props, ref) => {
         <ThemeToggle />
       </div>
       <div className="container">
-        <h1>DARIEN MARTIN</h1>
-        <p className="tagline">Full Stack Web Developer </p>
-        <a href="#projects" className="btn">View My Work</a>
-        <i className="material-icons arrow-button">arrow_downward</i>
+        <div className="slide-in-left hero-title">Darien Martin</div>
+        <div className="slide-in-right hero-sub-title">
+          Full Stack Web Developer
+        </div>
+        <a href="#projects">
+          {" "}
+          <i className="material-icons arrow-button vibrate">arrow_downward</i>
+        </a>
       </div>
     </header>
   );
 });
 
-Header.displayName = 'Header';
+Header.displayName = "Header";
 
 export default Header;

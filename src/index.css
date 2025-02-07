@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+:root {
+  /* Light Theme */
+  --background-color: #f5f1f1;
+  --background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  --inverse-background: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  --text-color: #778899;
+  --inverse-color: #fcf9f9;
+  --primary-color: #233d4d;
+  --secondary-color: #cbfef1;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --background-color: #0e0d0d;
+  --background-image: linear-gradient(-20deg, #010101 0%, #0a041f 100%);
+  --inverse-background: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  --text-color: #fcf9f9;
+  --inverse-color: #778899;
+  --primary-color: linear-gradient(
+    to right,
+    #6441a5 0%,
+    #2a0845 51%,
+    #6441a5 100%
+  );
+  --secondary-color: #6c757d;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

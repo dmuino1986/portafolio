@@ -1,38 +1,23 @@
-import React, { forwardRef } from 'react';
-import './projects.css';
+import "./projects.css";
+import { ExperienceProjects } from "../../constants/exprecienceProjects";
+import ExperienceCard from "../experience/experienceCard";
 
-const Projects = forwardRef<HTMLDivElement>((props, ref) => {
-  const projects = [
-    {
-      title: 'Project 1',
-      description: 'Description of Project 1.',
-      link: '#',
-    },
-    {
-      title: 'Project 2',
-      description: 'Description of Project 2.',
-      link: '#',
-    },
-  ];
+const Projects = () => {
+  const projects = ExperienceProjects;
 
   return (
-    <section id="projects" className="projects" ref={ref}>
-      <div className="container">
+    <section id="projects" className="projects">
+      <div>
         <h2>Projects</h2>
-        <div className="project-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <a href={project.link} className="btn">Learn More</a>
-            </div>
-          ))}
-        </div>
+
+        {projects.map((project, index) => (
+          <ExperienceCard key={index} experience={project} />
+        ))}
       </div>
     </section>
   );
-});
+};
 
-Projects.displayName = 'Projects';
+Projects.displayName = "Projects";
 
 export default Projects;

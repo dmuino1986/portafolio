@@ -15,7 +15,7 @@
   right: 20px; /* Adjust as needed */
   z-index: 1000; /* Ensure the button is above other elements */
 }
-.particles-container{
+.particles-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,14 +30,22 @@
 
 h1 {
   font-size: 4rem;
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #fbc2eb);
+  background: linear-gradient(
+    45deg,
+    #ff9a9e,
+    #fad0c4,
+    #fbc2eb,
+    #a6c1ee,
+    #fbc2eb
+  );
   background-size: 300% 300%;
   -webkit-background-clip: text;
   background-clip: "none";
   -webkit-text-fill-color: transparent;
   animation: gradientText 8s ease infinite;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
-  font-family: 'Playfair Display', serif;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  font-family: "Playfair Display", serif;
   font-weight: 700;
 }
 
@@ -45,7 +53,7 @@ h1 {
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.3s ease, transform 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
@@ -68,7 +76,6 @@ h1 {
   background: var(--secondary-color);
 }
 
-
 @keyframes gradientText {
   0% {
     background-position: 0% 50%;
@@ -82,11 +89,27 @@ h1 {
 }
 
 .arrow-button {
-  font-size: 36px; /* Initial size */
+  font-size: clamp(1.25rem, 5.128vw + 0.096rem, 6.25rem);
   transition: transform 0.3s ease, font-size 0.3s ease;
+  display: inline-block;
+  margin-top: 5vw;
 }
 
 .arrow-button:hover {
   transform: scale(1.5);
-  font-size: 54px; /* Increased size on hover */
+  font-size: (2.5rem, 10.256vw + 0.192rem, 12.5rem);
+}
+
+.slide-in-left.hero-title {
+  font-family: monospace;
+  font-size: clamp(2rem, 5.641vw + 0.731rem, 7.5rem);
+  font-weight: 600;
+  margin-bottom: 1vw;
+}
+
+.slide-in-right.hero-sub-title {
+  font-family: monospace;
+  font-size: clamp(1rem, 2.821vw + 0.365rem, 3.75rem);
+  font-weight: 600;
+  margin-bottom: 5vw;
 }

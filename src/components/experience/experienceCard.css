@@ -1,0 +1,52 @@
+/* ExperienceCard.css */
+.experience-card {
+  position: relative;
+  width: clamp(18.75rem, 44.872vw + 8.654rem, 62.5rem);
+  margin-bottom: 40px; /* Space for the vertical line */
+  padding: 20px;
+  border: 1px solid var(--text-color);
+  border-radius: 8px;
+  background-color: var(--inverse-background);
+  margin-left: 40px; /* Space for the icon and vertical line */
+  color: var(--text-color);
+}
+
+.experience-card .icon {
+  position: absolute;
+  top: 0;
+  left: -40px; /* Position outside the card */
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+}
+
+.experience-card .vertical-line {
+  position: absolute;
+  top: 24px; /* Start below the icon */
+  left: -28px; /* Align with the center of the icon */
+  width: 2px;
+  height: calc(100% + 20px); /* Extend below the card */
+  background-color: var(--text-color);
+}
+
+.experience-card h3 {
+  margin: 0 0 10px 0;
+}
+
+.experience-card p {
+  margin: 0 0 10px 0;
+}
+
+.experience-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.experience-card ul li {
+  margin-bottom: 5px;
+}

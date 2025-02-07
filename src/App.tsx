@@ -6,11 +6,10 @@ import Skills from "./components/skills/skills";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "./store/store";
+import { useDispatch } from "react-redux";
 import { hideNavbar, showNavbar } from "./store/navBarSlice";
 
-const App:React.FC = () => {
+const App: React.FC = () => {
   // const isNavbarVisible = useSelector((state:RootState)=>state.navbar.isVisible);
   const dispatch = useDispatch();
   const headerRef = useRef<HTMLDivElement>(null);
@@ -27,8 +26,8 @@ const App:React.FC = () => {
       {
         threshold: 0.1, // Trigger when 10% of the header is visible
       }
-    ); 
-    
+    );
+
     if (headerRef.current) {
       observer.observe(headerRef.current);
     }
@@ -40,13 +39,11 @@ const App:React.FC = () => {
     };
   }, [dispatch]);
 
-
-
   return (
     <div>
-      <Header ref={headerRef}/>
+      <Header ref={headerRef} />
       <Navbar />
-      <Projects/>
+      <Projects />
       <Skills />
       <Contact />
       <Footer />
