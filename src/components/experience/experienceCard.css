@@ -34,6 +34,10 @@
   background-color: var(--text-color);
 }
 
+.end-line {
+  height: calc(100% - 20px) !important;
+}
+
 .experience-card h3 {
   margin: 0 0 10px 0;
 }

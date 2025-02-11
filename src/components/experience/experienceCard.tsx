@@ -4,9 +4,13 @@ import "./experienceCard.css";
 
 interface ExperienceCardProps {
   experience: ExperinceProject;
+  lastCard: boolean;
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
+const ExperienceCard: React.FC<ExperienceCardProps> = ({
+  experience,
+  lastCard,
+}) => {
   return (
     <div className="experience-card">
       {/* Icon */}
@@ -16,7 +20,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
       </div>
 
       {/* Vertical Line */}
-      <div className="vertical-line"></div>
+      <div
+        className={!lastCard ? "vertical-line " : "end-line vertical-line"}
+      ></div>
 
       {/* Card Content */}
       <h3>{experience.title}</h3>

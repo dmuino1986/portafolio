@@ -1,0 +1,76 @@
+form {
+  min-width: 40vw;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 8rem;
+  display: block;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.success {
+  color: green;
+  font-size: 0.9em;
+}
+
+form button {
+  background-color: var(--background-image);
+  color: var(--text-color);
+  padding: 10px 15px;
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 10px 10px 0;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+form > button:hover:not(:disabled) {
+  background-color: var(--text-color);
+  color: var(--inverse-color);
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    width: 90vw;
+  }
+}
+
+/* .slide-in-left-2s {
+  -webkit-animation: slide-in-left-2s 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-left-2s 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+} */
+
+.contact.visible h2 {
+  -webkit-animation: slide-in-left 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-left 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}

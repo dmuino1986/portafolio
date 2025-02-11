@@ -1,5 +1,6 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import ContactForm from "./contactForm";
 
 const Contact: React.FC = () => {
   const { ref, inView } = useInView({
@@ -13,13 +14,8 @@ const Contact: React.FC = () => {
       id="contact"
       className={`contact ${inView ? "visible" : ""}`}
     >
-      <div className="container">
-        <h2>Contact</h2>
-        <p>
-          Let's work together! Reach out to me at{" "}
-          <a href="mailto:your.email@example.com">your.email@example.com</a>.
-        </p>
-      </div>
+      <h2 className="slide-in-left-2s">Contact</h2>
+      <ContactForm />
     </section>
   );
 };
