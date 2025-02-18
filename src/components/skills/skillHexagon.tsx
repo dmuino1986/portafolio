@@ -2,12 +2,13 @@ import "./skillHexagon.css";
 
 interface SkillProps {
   text: string;
+  path: string;
 }
 
-const SkillHexagon = ({ text }: SkillProps) => {
+const SkillHexagon = ({ text, path }: SkillProps) => {
   return (
     <div className="hexagon">
-      <div className="hexagon-text">{text}</div>
+      <img src={path} alt={text} className="hexagon-text" />
     </div>
   );
 };

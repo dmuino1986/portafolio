@@ -36,6 +36,7 @@ code {
     #2a0845 51%,
     #6441a5 100%
   );
+  border: solid 1px var(--text-color);
   --secondary-color: #6c757d;
 }
 
@@ -45,4 +46,10 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.typing {
+  color: var(--text-color);
+  font-size: 2rem;
+  border-right: solid 2px var(--text-color);
 }

@@ -1,0 +1,45 @@
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--background-image);
+}
+
+.panel {
+  display: flex;
+  padding: 4rem;
+}
+.panel-content {
+  padding: 2rem;
+  width: 50%;
+}
+
+@media screen and (max-width: 850px) {
+  .panel {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+  .panel-content {
+    padding: 1rem;
+  }
+}
+
+.avatar {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+}
+.avatar-container {
+  display: flex;
+}
+
+.headline_name {
+  color: var(--primary-color);
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+.headline {
+  padding-left: 1rem;
+}

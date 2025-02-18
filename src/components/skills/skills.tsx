@@ -1,10 +1,9 @@
 import React from "react";
 import "./skills.css";
 import SkillHexagon from "./skillHexagon";
+import { skills } from "../../constants/skills";
 
 const Skills: React.FC = () => {
-  const skills: string[] = ["HTML", "CSS", "JavaScript", "React", "Node.js"];
-
   return (
     <section id="skills" className="skills">
       <div className="container">
@@ -13,7 +12,7 @@ const Skills: React.FC = () => {
         <ul className="skills-list">
           {skills.map((skill, index) => (
             <li key={index}>
-              <SkillHexagon text={skill} />
+              <SkillHexagon text={skill.text} path={skill.path} />
             </li>
           ))}
         </ul>

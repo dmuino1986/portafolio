@@ -8,6 +8,8 @@ import Footer from "./components/footer/footer";
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { hideNavbar, showNavbar } from "./store/navBarSlice";
+import About from "./components/about/about";
+import TypingAnimation from "./components/TypingAnimation/typeAnimation";
 
 const App: React.FC = () => {
   // const isNavbarVisible = useSelector((state:RootState)=>state.navbar.isVisible);
@@ -42,9 +44,10 @@ const App: React.FC = () => {
   return (
     <div>
       <Header ref={headerRef} />
+      <About />
       <Navbar />
       <Projects />
-      <Skills />
+
       <Contact />
       <Footer />
     </div>
