@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTsBuildInfoEmitOutputFilePath } from "typescript";
 
 interface NavbarState {
   isVisible: boolean;
