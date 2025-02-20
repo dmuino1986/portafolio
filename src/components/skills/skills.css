@@ -7,11 +7,11 @@
   color: var(--text-color);
 }
 
-.container {
+/* .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-}
+} */
 
 .skills-list {
   list-style: none;

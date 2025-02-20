@@ -6,11 +6,11 @@ footer {
   border-top: solid 0.01rem var(--text-color);
 }
 
-.container {
+/* .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-}
+} */
 
 p {
   margin: 0;

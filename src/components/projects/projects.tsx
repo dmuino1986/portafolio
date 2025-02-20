@@ -13,7 +13,7 @@ const Projects = () => {
   return (
     <section id="projects" className="projects" ref={ref}>
       <div className={`${inView ? "slide-in-left" : ""}`}>
-        <h2 className={`${inView ? "section-title" : ""}`}>Projects</h2>
+        <h2 className={`${inView ? "section-title" : ""}`}>Work experience</h2>
 
         {projects.map((project, index) => (
           <ExperienceCard

@@ -102,7 +102,7 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>((props, ref) => {
       <div className="theme-toggle-container">
         <ThemeToggle />
       </div>
-      <div className="container">
+      <div className="container-hero">
         <div className="slide-in-left hero-title">Darien Martin</div>
         <div className="slide-in-right hero-sub-title">
           Full Stack Web Developer

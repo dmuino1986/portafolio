@@ -7,8 +7,7 @@ section {
   transform: translateY(0.7rem); /* Start slightly below */
 }
 
-section,
-header {
+section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

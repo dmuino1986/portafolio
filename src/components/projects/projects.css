@@ -6,11 +6,11 @@
   background-image: var(--background-image);
 }
 
-.container {
+/* .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 0;
-}
+} */
 
 .project-card {
   background: var(--background-color);

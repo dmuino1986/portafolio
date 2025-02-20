@@ -2,14 +2,12 @@ import React, { useEffect, useRef } from "react";
 import Navbar from "./components/navBar/navBar";
 import Header from "./components/header/header";
 import Projects from "./components/projects/projects";
-import Skills from "./components/skills/skills";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { hideNavbar, showNavbar } from "./store/navBarSlice";
 import About from "./components/about/about";
-import TypingAnimation from "./components/TypingAnimation/typeAnimation";
 
 const App: React.FC = () => {
   // const isNavbarVisible = useSelector((state:RootState)=>state.navbar.isVisible);
@@ -43,11 +41,10 @@ const App: React.FC = () => {
 
   return (
     <div>
+      <Navbar />
       <Header ref={headerRef} />
       <About />
-      <Navbar />
       <Projects />
-
       <Contact />
       <Footer />
     </div>
